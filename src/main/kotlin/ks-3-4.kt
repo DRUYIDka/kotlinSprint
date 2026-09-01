@@ -3,11 +3,11 @@ fun main() {
     var where: String = "E4"
     var numPart: Int = 1
 
-    println("${whereFrom.lowercase()}-${where.lowercase()};$numPart")
+    println("$whereFrom-$where;$numPart")
 
     whereFrom = "D2"
     where = "D3"
     numPart = 2
 
-    println("${whereFrom.lowercase()}-${where.lowercase()};$numPart")
+    println("$whereFrom-$where;$numPart")
 }

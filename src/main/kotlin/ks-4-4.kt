@@ -1,5 +1,5 @@
 fun main() {
-    var dayTraining = 5
+    val dayTraining = 5
     var isHandsDay = true
     var isFootDay = false
     var isBackDay = false
@@ -9,14 +9,14 @@ fun main() {
         println("""
             Упражнения для рук: ${!isHandsDay}
             Упражнения для ног: ${!isFootDay}
-            Упражнения для спины: false ${!isBackDay}
-            Упражнения для пресса: true ${!isTorceDay}
+            Упражнения для спины: ${!isBackDay}
+            Упражнения для пресса: ${!isTorceDay}
         """.trimIndent())
     else
         println("""
             Упражнения для рук: ${isHandsDay}
             Упражнения для ног: ${isFootDay}
-            Упражнения для спины: false ${isBackDay}
-            Упражнения для пресса: true ${isTorceDay}
+            Упражнения для спины: ${isBackDay}
+            Упражнения для пресса: ${isTorceDay}
         """.trimIndent())
 }

@@ -1,4 +1,4 @@
-const val HOMIDITY = 20
+const val AIR_HUMIDITY = 20
 const val SEASON = "зима"
 
 fun main() {
@@ -6,5 +6,5 @@ fun main() {
     val tent: Boolean = true
 
     println("Благоприятные ли условия сейчас для роста бобовых? " +
-            "${(weather == true) && (tent == true) && (HOMIDITY == 20) && (SEASON == "не зима")}")
+            "${(weather == true) && (tent == true) && (AIR_HUMIDITY == 20) && (SEASON != "зима")}")
 }

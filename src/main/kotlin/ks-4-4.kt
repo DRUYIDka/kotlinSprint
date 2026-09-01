@@ -12,4 +12,11 @@ fun main() {
             Упражнения для спины: false ${!isBackDay}
             Упражнения для пресса: true ${!isTorceDay}
         """.trimIndent())
+    else
+        println("""
+            Упражнения для рук: ${isHandsDay}
+            Упражнения для ног: ${isFootDay}
+            Упражнения для спины: false ${isBackDay}
+            Упражнения для пресса: true ${isTorceDay}
+        """.trimIndent())
 }

@@ -4,11 +4,11 @@ fun main() {
     val boxWithEat: Int = readln().toInt()
     val isSunnyDay = readln().toBoolean()
 
-    val isNecessaryCrew = crew in 56..70
-    val isManyEat = boxWithEat >= 50
-    val compressionCondition = isDamageShip && isManyEat && isNecessaryCrew && isSunnyDay
+    val isNecessaryCrew = crew in 55..70
+    val isManyEat = boxWithEat > 50
+    val compressionConditionFull = (!isDamageShip || isDamageShip) && (isManyEat || boxWithEat >= 50) && isNecessaryCrew && (isSunnyDay || !isSunnyDay)
 
-    if(compressionCondition)
+    if(compressionConditionFull)
         println("Корабль готов отплыть")
     else
         println("Корабль not готов")

@@ -1,9 +1,10 @@
 fun main() {
-    val trainingDay = 5
+    val trainingDay = 6
+    val isEvenDay: Boolean = trainingDay % 2 == 0
     val flagTraining: Boolean = true
-    var finalString: String
+    val finalString: String
 
-    if(trainingDay <= 5)
+    if(!isEvenDay)
         finalString = "Упражнения для рук:\t\t$flagTraining\n" +
                 "Упражнения для ног:\t\t${!flagTraining}\n" +
                 "Упражнения для спины:\t${!flagTraining}\n" +

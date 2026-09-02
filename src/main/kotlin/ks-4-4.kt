@@ -1,5 +1,5 @@
 fun main() {
-    val trainingDay = 6
+    val trainingDay = 5
     val isEvenDay: Boolean = trainingDay % 2 == 0
     val flagTraining: Boolean = true
     val finalString: String

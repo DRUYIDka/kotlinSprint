@@ -6,8 +6,7 @@ fun main() {
 
     val isNecessaryCrew = crew in 55..70
     val isManyEat = boxWithEat > 50
-    val isDamageCheck = true
-    val compressionConditionFull = (!isDamageCheck && isNecessaryCrew && isManyEat && isSunnyDay) || (isDamageCheck && boxWithEat >= 50 && isSunnyDay == true && crew == 70)
+    val compressionConditionFull = (isDamageShip == false && isNecessaryCrew && isManyEat) || (boxWithEat >= 50 && isSunnyDay == true && crew == 70)
 
     if(compressionConditionFull)
         println("Корабль готов отплыть")

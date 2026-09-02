@@ -1,20 +1,17 @@
 fun main() {
-    val dayTraining = 5
-    val isHandsDay = true
-    val isFootDay = false
-    val isBackDay = false
-    val isTorceDay = true
+    val trainingDay = 5
+    val flagTraining: Boolean = true
     var finalString: String
 
-    if(dayTraining % 2 != 0)
-        finalString = "Упражнения для рук:    $isHandsDay\n" +
-                "Упражнения для ног:    $isFootDay\n" +
-                "Упражнения для спины:  ${(isBackDay)}\n" +
-                "Упражнения для пресса: $isTorceDay";
+    if(trainingDay <= 5)
+        finalString = "Упражнения для рук:\t\t$flagTraining\n" +
+                "Упражнения для ног:\t\t${!flagTraining}\n" +
+                "Упражнения для спины:\t${!flagTraining}\n" +
+                "Упражнения для пресса:\t$flagTraining";
     else
-        finalString = "Упражнения для рук:    $isHandsDay\n" +
-                "Упражнения для ног:   $isFootDay\n" +
-                "Упражнения для спины: $isBackDay\n" +
-                "Упражнения для пресса: $isTorceDay";
+        finalString = "Упражнения для рук:\t\t${!flagTraining}\n" +
+                "Упражнения для ног:\t\t$flagTraining\n" +
+                "Упражнения для спины:\t$flagTraining\n" +
+                "Упражнения для пресса:\t${!flagTraining}";
     println(finalString)
 }

@@ -1,0 +1,17 @@
+fun main() {
+    val isDamageShip = readln().toBoolean()
+    val crew : Int = readln().toInt()
+    val boxWithEat: Int = readln().toInt()
+    val isSunnyDay = readln().toBoolean()
+
+    val isNecessaryCrew = crew in 56..70
+    val isManyEat = boxWithEat >= 50
+    val compressionCondition = isDamageShip && isManyEat && isNecessaryCrew && isSunnyDay
+
+    if(compressionCondition)
+        println("Корабль готов отплыть")
+    else
+        println("Корабль not готов")
+
+
+}

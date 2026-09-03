@@ -14,5 +14,5 @@ fun main() {
         else -> println("Вы не угадали ни одного числа")
     }
 
-    println("Правильные числа: $completeResult")
+    println("Правильные числа: $randomNumber")
 }

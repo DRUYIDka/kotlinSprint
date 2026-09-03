@@ -5,7 +5,7 @@ fun main() {
     val result = if ((2026 - inputYear) >= AGE_OF_LEGAL) {
         "Показать экран со скрытым контентом"
     } else {
-        "Доступ запрещён"
+
     }
 
     println(result)

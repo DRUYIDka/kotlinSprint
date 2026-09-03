@@ -2,7 +2,9 @@ import kotlin.random.Random
 
 fun main() {
     val randomNumber = List(3) { Random.nextInt(0, 43) }
-    val completeResult = randomNumber intersect setOf(List(3) { readln().toInt() })
+    val inputNumber = List(3) {readln().toInt()}
+
+    val completeResult = randomNumber intersect inputNumber
     val sizeResult = completeResult.size
 
     when (sizeResult) {
@@ -12,5 +14,5 @@ fun main() {
         else -> println("Вы не угадали ни одного числа")
     }
 
-    println("Правильные числа: $randomNumber")
+    println("Правильные числа: $completeResult")
 }

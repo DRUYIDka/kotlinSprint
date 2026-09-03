@@ -9,10 +9,8 @@ fun main() {
 
     if (nameQuest != "Zaphod"){
         println("Зарегистрируйтесь чтобы продолжить")
-        return 
+        return
     }
-    if (nameQuest == "Zaphod")
-        println("Введите пароль")
     passwordQuest = readln()
     if (passwordQuest == "PanGalactic")
             println(

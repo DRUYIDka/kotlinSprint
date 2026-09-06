@@ -10,15 +10,15 @@ fun main() {
         lengthPassword = readln().toInt()
     }
 
-    for (i in 1..lengthPassword) {
-        pin += char.random()
+    if (!(pin.any { it.isLowerCase() } && pin.any { it.isDigit() } && pin.any { it.isUpperCase() })) {
+        do {
+            pin = ""
+            for (i in 1..lengthPassword) {
+                pin += char.random()
+            }
+        } while (!(pin.any { it.isLowerCase() } && pin.any { it.isDigit() } && pin.any { it.isUpperCase() }))
     }
 
-
-    while ((pin.any { it.isLowerCase() } && pin.any { it.isDigit() } && pin.any { it.isUpperCase() }) == false) {
-        pin += char.random()
-
-    }
     println(pin)
 
 }

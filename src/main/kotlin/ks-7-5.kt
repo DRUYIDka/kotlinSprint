@@ -12,11 +12,13 @@ fun main() {
 
     for (i in 1..lengthPassword) {
         pin += char.random()
-        for (ch in pin) {
-            if (ch.isUpperCase() && ch.isDigit() && ch.isLowerCase() && pin.length == lengthPassword) {
-                break
-            }
-        }
+    }
+
+
+    while ((pin.any { it.isLowerCase() } && pin.any { it.isDigit() } && pin.any { it.isUpperCase() }) == false) {
+        pin += char.random()
+
     }
     println(pin)
+
 }

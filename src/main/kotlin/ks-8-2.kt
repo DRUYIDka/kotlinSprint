@@ -7,9 +7,7 @@ fun main() {
         if (i == ingredient) {
             println("Ингредиент $ingredient в рецепте есть")
             break
-        } else {
-            println("Такого ингредиента в рецепте нет")
-            break
         }
     }
+    println("Такого ингредиента в рецепте нет")
 }

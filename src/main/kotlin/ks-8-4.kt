@@ -7,10 +7,11 @@ fun main() {
 
     if (ingredient !in ingredientsList) {
         println("Данного ингредиента нет в списке")
+        return
     } else {
         println("На какой ингредиент хотите заменить?")
         val newIngredient = readln()
         ingredientsList.set(ingredientsList.indexOf(ingredient), newIngredient)
+        println("Готово! Вы сохранили следующий список: ${ingredientsList.joinToString(", ")}")
     }
-    println("Готово! Вы сохранили следующий список: ${ingredientsList.joinToString(", ")}")
 }

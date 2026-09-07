@@ -1,6 +1,6 @@
 fun main() {
     val recipes = arrayOf("зелень", "петрушка", "колбаса", "сыр")
-    println("Какой ингредиент вы хотите найти?")
+    println("Какой ингредидиент вы хотите найти?")
     val ingredient = readln()
 
     if (ingredient in recipes) {

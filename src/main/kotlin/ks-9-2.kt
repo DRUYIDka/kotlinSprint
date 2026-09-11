@@ -5,7 +5,8 @@ fun main() {
     println("В рецепте есть базовые ингредиенты: $recipe")
     println("Желаете добавить еще?")
     val answerOnQuestion = readln()
-    if (answerOnQuestion.equals("да")) {
+    if (answerOnQuestion.equals("да", ignoreCase = true)) {
+        println("Какой ингредиент вы хотите добавить?")
         newIngredient = readln()
         recipe.add(newIngredient)
     } else {

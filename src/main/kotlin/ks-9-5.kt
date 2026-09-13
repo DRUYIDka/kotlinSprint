@@ -7,5 +7,5 @@ fun main() {
         listIngredients.add(ingredients)
     }
     val sortList = listIngredients.sorted()
-    println(listIngredients.distinct().joinToString(", ").capitalize())
+    println(sortList.distinct().joinToString(", ").replaceFirstChar { it.uppercase() })
 }

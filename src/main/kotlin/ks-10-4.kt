@@ -17,7 +17,7 @@ fun generateValue() = (1..6).random()
 fun repeatRound(answer: String, gains: Int){
     if(answer == "Да") main()
     else if(answer == "Нет"){
-        println("Выйгрышных партий человека - $gains ")
+        println("Выйгрышных партий человека - $gains")
     }
 }
 

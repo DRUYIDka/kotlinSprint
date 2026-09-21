@@ -1,30 +1,33 @@
 fun main() {
-    var answerPeople = "Да"
-    while (answerPeople == "Да") {
-        repeatRound(answerPeople)
+    var gainsPeople = 0
+    var answerPeople : String
+    do {
+        if (repeatRound()) {
+            gainsPeople++
+        }
         println("Хотите бросить кости еще раз? Введите Да или Нет")
         answerPeople = readln()
-        if (answerPeople == "Нет") {
-            repeatRound(answerPeople)
-            return
-        }
-    }
+    } while (answerPeople == "Да")
+
+    println("Выйгрышных партий человека - $gainsPeople")
 }
+
 fun generateValue() = (1..6).random()
-fun repeatRound(answer: String) {
-    var gainsPeople = 0
+fun repeatRound(): Boolean {
+    var isWinPeople: Boolean = true
     val resultPeople = generateValue()
     val resultRobot = generateValue()
-    if (answer == "Да") {
-        println("Кость бросает человек")
-        println(resultPeople)
-        println("Кость бросает робот")
-        println(resultRobot)
+
+    println("Кость бросает человек")
+    println(resultPeople)
+    println("Кость бросает робот")
+    println(resultRobot)
+
+    if (resultPeople > resultRobot) {
+        isWinPeople = true
+    } else {
+        isWinPeople = false
     }
-    if (resultPeople > resultRobot) gainsPeople++
-    if (answer == "Нет") {
-        println("Выйгрышных партий человека - $gainsPeople")
-        return
-    }
+    return isWinPeople
 }
 

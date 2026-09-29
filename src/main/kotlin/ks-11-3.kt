@@ -1,40 +1,33 @@
 class Room(
-    var cover: String,
-    var name: String,
-    var listUsers: MutableList<String> = mutableListOf(),
+    val cover: String,
+    val name: String,
+) {
 
-    ) {
-    val user = Users("", "", "")
+    var listUsers: MutableList<String> = mutableListOf()
+    val statusList: List<String> = listOf("разговаривает", "микрофон выключен", "пользователь заглушен")
+    val member = Users("аватарка", "Анна", "разговаривает")
+    val member2 = Users("аватарка2", "Сергей", "микрофон выключен")
     fun newMember() {
-        println("Хотите добавить нового пользователя в комнату?")
-        var answerQuestion = readln()
-        while (answerQuestion == "да".lowercase()) {
-            println("Выберите аватар для пользователя")
-            user.avatar = readln()
-            println("Введите имя для пользователя")
-            user.name = readln()
-            println("Введите статус для пользователя")
-            user.status = readln()
-            listUsers.add(user.name)
-            println("Хотите добавить нового пользователя в комнату?")
-            answerQuestion = readln()
+        if (statusList.contains(member.status)) {
+            listUsers.add(member.toString())
+        } else {
+            println("Такого статуса не существует!")
+        }
+        if (statusList.contains(member2.status)) {
+            listUsers.add(member2.toString())
+        } else {
+            println("Такого статуса не существует!")
         }
         println(listUsers)
     }
 
     fun statusUpdate() {
-        println("Статус какого участника вы хотите сменить?")
         var newStatus = ""
-        val answer = readln()
-        for (i in listUsers) {
-            if (i == answer) {
-                println("Текущий статус участника - ${user.status}, какой новый статус участника?")
-                newStatus = readln()
-                user.status = newStatus
+        println("Текущий статус участника - ${member.status}, какой новый статус участника?")
+        newStatus = readln()
+        member.status = newStatus
 
-            }
 
-        }
     }
 }
 

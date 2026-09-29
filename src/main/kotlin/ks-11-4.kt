@@ -7,17 +7,17 @@ class Categoria (
 class Recipe (
     val fullName: String,
     val count: Int,
-    val ingredients: MutableList<String>,
+    val ingredients: MutableList<Ingredient> = mutableListOf<Ingredient>(),
     val info: String,
 )
 
-class ingredints () {
+class Ingredient {
     val name = ""
     val count = 0
     val sys = ""
 }
 
-enum class calculusSys {
+enum class CalculusSys {
     ложек, Г, штуки, КГ, МГ, стаканов
 }
 

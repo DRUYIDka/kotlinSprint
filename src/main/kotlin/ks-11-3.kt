@@ -4,17 +4,15 @@ class Room(
 
     ) {
     var listUsersRoom = mutableListOf<User>()
-    fun newMember(name: String, avatar: String, status: String) {
-        listUsersRoom.add(User(avatar, name, status))
+    fun newMember(user: User) {
+        listUsersRoom.add(user)
     }
 
-    fun statusUpdate() {
-        println("Статус какого пользователя вы хотите поменять")
-        val searchUser = readln()
+    fun statusUpdate(searchUser: String, statusNew: String) {
         listUsersRoom.forEach { it ->
             if(it.name == searchUser) {
-                println("Текущий статус участника - ${it.status}, какой новый статус участника?")
-                it.status = statuses.разговаривает.name
+                println("Текущий статус участника - ${it.status}")
+                it.status = statusNew
             }
         }
     }
@@ -40,9 +38,9 @@ fun main() {
     val user = User("аватарка", "Анна", statuses.разговаривает.name)
     val user2 = User("аватарка2", "Сергей", statuses.микрофонВыключен.name)
 
-    newRoom.newMember(user.name, user.avatar, user.status)
-    newRoom.newMember(user2.name, user2.avatar, user2.status)
-    newRoom.statusUpdate()
+    newRoom.newMember(user)
+    newRoom.newMember(user2)
+    newRoom.statusUpdate("Анна", statuses.микрофонВыключен.name)
     println(newRoom.cover)
     println(newRoom.name)
 

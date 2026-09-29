@@ -11,11 +11,11 @@ class Recipe (
     val info: String,
 )
 
-class Ingredient {
-    val name = ""
-    val count = 0
-    val sys = ""
-}
+class Ingredient(
+    val name: String,
+    val count: Int,
+    val sys: String,
+)
 
 enum class CalculusSys {
     ложек, Г, штуки, КГ, МГ, стаканов

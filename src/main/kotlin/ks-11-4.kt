@@ -7,21 +7,13 @@ class Categoria (
 class Recipe (
     val fullName: String,
     val count: Int,
-    val ingredients: MutableList<Ingredient> = mutableListOf<Ingredient>(),
+    val ingredients: List<Ingredient>,
     val info: String,
 )
 
 class Ingredient(
     val name: String,
     val count: Int,
-    val sys: String,
+    val unitOfMeasure: String,
 )
 
-enum class CalculusSys {
-    ложек, Г, штуки, КГ, МГ, стаканов
-}
-
-fun main(){
-
-
-}

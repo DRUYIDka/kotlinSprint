@@ -6,21 +6,26 @@ class Forum(
     private val messageNew: MutableList<ForumMessage> = mutableListOf()
 
     class ForumUser private constructor(val userId: Int, val userName: String) {
-        companion object {
+        class Builder {
+            val userId: Int = 1
+            val userName: String = ""
             fun userElement(userId: Int, userName: String) = ForumUser(userId, userName)
         }
     }
 
     class ForumMessage private constructor(val authorId: Int, val message: String) {
-        companion object {
+        class Builder  {
+            val authorId: Int = 1
+            val message: String = ""
             fun elementMessage(authorId: Int, message: String) = ForumMessage(authorId, message)
         }
     }
 
-
+    val user = ForumUser.Builder()
+    val mess = ForumMessage.Builder()
     fun createNewUser(name: String): ForumUser {
         val id = count
-        val newUser = ForumUser.userElement(id, name)
+        val newUser = user.userElement(id, name)
         allUsers.add(newUser)
         count++
 
@@ -31,7 +36,7 @@ class Forum(
         var elementMessage: ForumMessage? = null
         val messageAll = allUsers.find { it.userId == id }
         if (messageAll != null) {
-            elementMessage = ForumMessage.elementMessage(id, message)
+            elementMessage = mess.elementMessage(id, message)
             messageNew.add(elementMessage)
 
         }

@@ -1,15 +1,18 @@
-class DataTemperature(){
+class DataTemperature() {
     var dayTemperature = ""
     var nightTemperature = ""
     var residuesPresence = false
 
-    fun dataAboutDay(){
-        println("Дневная температура: $dayTemperature, " +
-                "ночная температура: $nightTemperature, " +
-                "наличие осадков: $residuesPresence")
+    fun dataAboutDay() {
+        println(
+            "Дневная температура: $dayTemperature, " +
+                    "ночная температура: $nightTemperature, " +
+                    "наличие осадков: $residuesPresence"
+        )
     }
 }
-fun main(){
+
+fun main() {
     val informationWeather = DataTemperature()
     informationWeather.dayTemperature = "+10"
     informationWeather.nightTemperature = "-2"

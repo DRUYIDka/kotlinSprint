@@ -1,29 +1,26 @@
-const val CONVERT_TO_KELVIN: Double = -273.15
+const val CONVERT_TO_KELVIN: Int = -273
 
-class DataTemperatureOfDay() {
-    var dayTemperature = 0
-    var nightTemperature = 0
-    var isResiduesPresence = false
+class DataTemperatureOfDay(_dayTemperature: Int, _nightTemperature: Int, _residuesPresence: Boolean) {
+    var dayTemperature = _dayTemperature + CONVERT_TO_KELVIN
+    var nightTemperature = _nightTemperature + CONVERT_TO_KELVIN
+    var isResiduesPresence = _residuesPresence
 
     fun dataAboutDay() {
         println(
-            "Дневная температура: ${dayTemperature + CONVERT_TO_KELVIN}, " +
-                    "ночная температура: ${nightTemperature + CONVERT_TO_KELVIN}, " +
+            "Дневная температура: $dayTemperature, " +
+                    "ночная температура: $nightTemperature, " +
                     "наличие осадков: ${if (isResiduesPresence) "Да" else "Нет"}"
         )
     }
 }
 
 fun main() {
-    val allDataOfDay1 = DataTemperatureOfDay()
-    allDataOfDay1.dayTemperature = 300
-    allDataOfDay1.nightTemperature = -100
-    allDataOfDay1.isResiduesPresence = false
+    val allDataOfDay1 = DataTemperatureOfDay(300, -10, false)
     allDataOfDay1.dataAboutDay()
-    val allDataOfDay2 = DataTemperatureOfDay()
-    allDataOfDay2.dayTemperature = 290
-    allDataOfDay2.nightTemperature = 100
-    allDataOfDay2.isResiduesPresence = true
+    val allDataOfDay2 = DataTemperatureOfDay(210, 0, true)
     allDataOfDay2.dataAboutDay()
 
 }
+
+
+

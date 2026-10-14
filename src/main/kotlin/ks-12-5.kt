@@ -5,7 +5,7 @@ class DataTemperatureOfDay(_dayTemperature: Int, _nightTemperature: Int, _residu
     val nightTemperature = _nightTemperature
     val isResiduesPresence = _residuesPresence
 
-    init {
+    fun inputDatWeather() {
         println(
             "Дневная температура: $dayTemperature, " +
                     "ночная температура: $nightTemperature, " +
@@ -22,15 +22,18 @@ fun main() {
         weatherIndicatorsList.add(DataTemperatureOfDay(Random.nextInt(-60, 60), Random.nextInt(-60, 60), isDayOfResidues))
         if(isDayOfResidues) countResidues++
     }
-    val listIndicators =  weatherIndicatorsList.map {
+    val listIndicatorsDay =  weatherIndicatorsList.map {
         it.dayTemperature
-        it.nightTemperature
 
     }
+    val listIndicatorsNight = weatherIndicatorsList.map{
+        it.nightTemperature
+    }
 
+    println("Среднее по показателям дневной температуры: " + listIndicatorsDay.average())
+    println("Среднее по показателям ночной температуры: " + listIndicatorsNight.average())
 
-    println(listIndicators.average())
-    println(countResidues)
+    println("Количество дней с осадками: $countResidues")
 
 
 }

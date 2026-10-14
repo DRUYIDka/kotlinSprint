@@ -1,5 +1,5 @@
 class DirectoryEntry(val userName: String, val phoneNumber: Long) {
-    val company: String? = null
+    var company: String? = null
 
     fun printInfoContact() {
         println("Имя: $userName\nНомер: $phoneNumber\nКомпания: ${company ?: "не указано"}")
@@ -8,5 +8,6 @@ class DirectoryEntry(val userName: String, val phoneNumber: Long) {
 
 fun main() {
     val user1 = DirectoryEntry("Anya", 79795678789L)
+    user1.company = "Company"
     user1.printInfoContact()
 }

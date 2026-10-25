@@ -17,16 +17,28 @@ class Chat(val messages: MutableList<Message>) {
         return id
     }
 
-    fun addThreadMessage(parentMessageId: String, message: String, author: String) {
+    fun addThreadMessage(message: String, author: String, parentMessageId: String) {
         val idChild = generationId()
         val newMessage = ChildMessage(message, idChild, parentMessageId, author)
         messages.add(newMessage)
     }
 
     fun printChat() {
-        val messagesAll = messages.groupBy {it ->
-            if (it is Message) {
-                println(it.id + " " + it.author + " " + it.text)
+        val groups = messages.groupBy { msg ->
+            if (msg is ChildMessage) {
+                msg.parentMessageId
+            } else {
+                msg.id
+            }
+        }
+
+        for ((_, group) in groups) {
+            for (msg in group) {
+                if(msg is ChildMessage) {
+                    println("\t" + msg.id + " " + msg.author + " " + msg.text)
+                } else {
+                    println(msg.id + " " + msg.author + " " + msg.text)
+                }
             }
         }
     }
@@ -42,6 +54,6 @@ fun main() {
     val message = mutableListOf<Message>()
     val chat = Chat(message)
     val id = chat.addMessage("Привет", "Анна")
-    chat.addThreadMessage(id, "Привет", "Серёжа")
+    chat.addThreadMessage("Привет", "Серёжа", id)
     chat.printChat()
 }

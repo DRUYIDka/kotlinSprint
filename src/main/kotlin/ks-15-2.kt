@@ -1,11 +1,11 @@
 abstract class WeatherStationStats(val count: Double)
-class Temperature(count: Double):WeatherStationStats(count)
-class PrecipitationAmount(count: Double): WeatherStationStats(count)
+class Temperature(count: Double) : WeatherStationStats(count)
+class PrecipitationAmount(count: Double) : WeatherStationStats(count)
 class WeatherServer() {
-    fun sendMessage(informationWeather: WeatherStationStats){
-        if(informationWeather is Temperature){
+    fun sendMessage(informationWeather: WeatherStationStats) {
+        if (informationWeather is Temperature) {
             println("${informationWeather.count} градусов")
-        } else if (informationWeather is PrecipitationAmount){
+        } else if (informationWeather is PrecipitationAmount) {
             println("${informationWeather.count} мм рт.ст.")
         }
     }

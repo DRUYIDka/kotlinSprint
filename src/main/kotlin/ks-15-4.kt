@@ -1,12 +1,14 @@
-abstract class Instrument(val name: String, val count: Int)
-class Components(name: String, count: Int) : Instrument(name, count), Search {
+abstract class Category(val name: String, val count: Int)
+class Instrument(name: String, count: Int) : Category(name, count), Search {
     override fun searchComponents() = println("Выполняется поиск")
 }
+class Components(name: String, count: Int) : Category(name, count)
 
 interface Search {
     fun searchComponents()
 }
+
 fun main() {
-    val instrument = Components("гитара", 4)
+    val instrument = Instrument("гитара", 4)
     instrument.searchComponents()
 }

@@ -39,6 +39,7 @@ interface PeopleTransported {
 }
 
 interface TransportsCargo {
+
     val countCargoMax: Int
     var amountCargoNow: Int
     fun loadCargo(amount: Int) {
@@ -71,21 +72,23 @@ interface TransportsCargo {
     }
 }
 
-class Truck(
-    override val countPeopleMax: Int = 1,
-    override var amountPeopleNow: Int = 0,
-    override val countCargoMax: Int = 2,
-    override var amountCargoNow: Int = 0, override val maxSpeed: Int = 60
-) : Drivable, PeopleTransported, TransportsCargo {
+class Truck : Drivable, PeopleTransported, TransportsCargo {
+    override val countPeopleMax: Int = 1
+    override var amountPeopleNow: Int = 0
+    override val countCargoMax: Int = 2
+    override var amountCargoNow: Int = 0
+    override val maxSpeed: Int = 60
+
     override fun drive() {
-        println("Грузовик перевозит $countCargoMax тонн груза со скоростью ${maxSpeed}")
+        println("Грузовик перевозит $amountCargoNow тонн груза со скоростью ${maxSpeed}")
     }
 }
 
-class Passenger(
-    override val countPeopleMax: Int = 3,
-    override var amountPeopleNow: Int = 0, override val maxSpeed: Int = 90
-) : Drivable, PeopleTransported {
+class Passenger : Drivable, PeopleTransported {
+    override val countPeopleMax: Int = 3
+    override var amountPeopleNow: Int = 0
+    override val maxSpeed: Int = 90
+
 
 }
 
@@ -94,14 +97,15 @@ fun main() {
     val passenger = Passenger()
     truck.loadPassenger(1)
     truck.unloadPassenger(1)
-    truck.drive()
     truck.loadCargo(2)
-    passenger.drive()
+    truck.drive()
     truck.unloadCargo(2)
 
     passenger.loadPassenger(3)
+    passenger.drive()
     passenger.unloadPassenger(3)
     passenger.loadPassenger(2)
+    passenger.drive()
     passenger.unloadPassenger(2)
 
 }

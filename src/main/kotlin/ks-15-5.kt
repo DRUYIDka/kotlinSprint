@@ -29,7 +29,7 @@ interface PeopleTransported {
                 amountPeopleNow -= amount
                 println("Выгружено ${amount} человек")
             } else {
-                println("На борту ${amount} просят ${amount - amountPeopleNow}")
+                println("На борту ${amountPeopleNow} просят ${amount}")
             }
         } else {
             println("Количество отрицательно! Введите повторно")
@@ -62,7 +62,7 @@ interface TransportsCargo {
                 amountCargoNow -= amount
                 println("Выгружено ${amount} тонны")
             } else {
-                println("На борту ${amount} просят ${amount - amountCargoNow}")
+                println("На борту ${amountCargoNow} просят ${amount}")
             }
         } else {
             println("Количество отрицательно! Введите повторно")
@@ -75,10 +75,9 @@ class Truck(
     override val countPeopleMax: Int = 1,
     override var amountPeopleNow: Int = 0,
     override val countCargoMax: Int = 2,
-    override var amountCargoNow: Int = 0, override val maxSpeed: Int = 80
+    override var amountCargoNow: Int = 0, override val maxSpeed: Int = 60
 ) : Drivable, PeopleTransported, TransportsCargo {
     override fun drive() {
-        val maxSpeed = 60
         println("Грузовик перевозит $countCargoMax тонн груза со скоростью ${maxSpeed}")
     }
 }
@@ -97,8 +96,9 @@ fun main() {
     truck.unloadPassenger(1)
     truck.drive()
     truck.loadCargo(2)
-    truck.unloadCargo(2)
     passenger.drive()
+    truck.unloadCargo(2)
+
     passenger.loadPassenger(3)
     passenger.unloadPassenger(3)
     passenger.loadPassenger(3)

@@ -1,12 +1,13 @@
-class User(login:String){
-    private val passwordOriginal = "123456"
+class User(val login: String, password: String) {
+    private val passwordOriginal = password
 
-    fun checkPassword(passwordInput: String = readln()){
-        if (passwordInput == passwordOriginal) println("Пароль введён верно")
-        else println("Пароль введён неверно")
+    fun checkPassword(passwordInput: String): Boolean {
+        return passwordInput == passwordOriginal
     }
 }
-fun main(){
-    val user = User("Anya")
-    user.checkPassword()
+
+fun main() {
+    val user = User("Anya", "123456")
+    val trueInput = user.checkPassword("123456")
+    if (trueInput) println("Пароль введён верно")
 }

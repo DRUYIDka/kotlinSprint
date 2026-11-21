@@ -1,21 +1,23 @@
 class Order(number: Int) {
+    var numberOrder: Int = number
+        private set
     var isOrdered: Boolean = false
         private set
 
-    internal fun confirm(statusNew: Boolean) {
+    private fun confirm(statusNew: Boolean) {
         isOrdered = statusNew
     }
-
+    fun changeStatus(statusNew: Boolean) {
+        confirm(statusNew)
+    }
 }
 
-fun changeStatus(order: Order, statusNew: Boolean) {
-    order.confirm(statusNew)
-}
+
 
 fun main() {
     val numberOrder = 15
     val order = Order(numberOrder)
-    changeStatus(order, true)
+    order.changeStatus(true)
     println(order.isOrdered)
 
 }

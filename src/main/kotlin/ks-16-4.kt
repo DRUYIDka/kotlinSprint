@@ -1,6 +1,6 @@
 class Order(number: Int) {
-    var numberOrder: Int = number
-        private set
+    private val numberOrder: Int = number
+
     var isOrdered: Boolean = false
         private set
 
@@ -11,8 +11,6 @@ class Order(number: Int) {
         confirm(statusNew)
     }
 }
-
-
 
 fun main() {
     val numberOrder = 15

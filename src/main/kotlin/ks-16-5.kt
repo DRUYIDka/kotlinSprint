@@ -1,8 +1,7 @@
 class Player private constructor(nameInput: String, hitInput: Int, healthInput: Int) {
     var hit = hitInput
         private set
-    var name = nameInput
-        private set
+    private val name = nameInput
     var health = healthInput
         private set
     var isAlive = true
@@ -27,6 +26,7 @@ class Player private constructor(nameInput: String, hitInput: Int, healthInput: 
     }
 
     fun healing(medicament: Int) {
+        require(medicament > 0) {"Лечение должно быть больше 0"}
         if (isAlive) health += medicament
 
     }
@@ -36,6 +36,8 @@ class Player private constructor(nameInput: String, hitInput: Int, healthInput: 
         hit = 0
         health = 0
         println("Игрок мёртв")
+        println("Здоровье: $health\n" +
+                "Удар: $hit")
     }
 }
 

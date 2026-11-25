@@ -24,7 +24,7 @@ class Folder(
 }
 
 fun main() {
-    val folder = Folder("Загрузки", 5, false)
+    val folder = Folder("Загрузки", 5, true)
     println(folder.name)
     println("Количество файлов: ${folder.countFileReal}")
 }

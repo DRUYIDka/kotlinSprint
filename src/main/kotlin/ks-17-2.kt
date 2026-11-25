@@ -5,7 +5,7 @@ class Ship(
 ){
     var name: String = initialName
         set(value) {
-            if (value != field) println("Имя нельзя менять!")
+            if (value != field) println("Имя нельзя менять")
         }
 
 }

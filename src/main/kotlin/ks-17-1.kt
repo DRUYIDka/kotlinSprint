@@ -1,4 +1,4 @@
-class quiz(questionInput: String, answerInput: String){
+class Quiz(questionInput: String, answerInput: String){
     val question = questionInput
         get() = field
     var answer = answerInput
